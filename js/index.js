@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
   console.log("Page has fully loaded.");
 })
 
-// preventDefault on a tags
+// PreventDefault on a tags
 
 const navLinks = document.querySelectorAll(".nav-link");
 navLinks.forEach((link) => {
@@ -113,4 +113,29 @@ searchBar.addEventListener("blur", () => {
   searchBar.style.backgroundColor = '';
 });
 
+// AUXCLICK
 
+const destinationLast = document.querySelectorAll(".destination")[2];
+destinationLast.addEventListener("auxclick", () => {
+  destinationLast.style.backgroundColor = "#DDDEED";
+  destinationLast.style.padding = "0 10px";
+});
+
+// Stop Propagation
+
+const destinationfirst = document.querySelector(".destination");
+destinationfirst.addEventListener("click", () => {
+  destinationfirst.style.display = "none";
+});
+
+const destinationButtonFirst = document.querySelector(".btn");
+destinationButtonFirst.addEventListener("click", (event) => {
+  destinationButtonFirst.style.display = "none";
+  event.stopPropagation();
+})
+
+// GSAP
+// TweenMax.to(target, duration, {vars});
+// Add to hmtl head - <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+const lowerImg = document.querySelector(".content-destination img");
+TweenMax.to(lowerImg, 6, {scale: .95});
