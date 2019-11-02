@@ -97,9 +97,20 @@ const searchBar = document.createElement("input");
 searchBar.type = "text";
 
 searchBar.style.width = "100px";
+searchBar.placeholder = "Search Site";
 
 const navBar = document.querySelector(".nav");
 
-navBar.style.alignItems = "center";
+navBar.style.alignItems = "flex-end";
 
 navBar.append(searchBar);
+
+searchBar.addEventListener("focus", () => {
+  searchBar.style.backgroundColor = "#DDDEED"
+});
+
+searchBar.addEventListener("blur", () => {
+  searchBar.style.backgroundColor = '';
+});
+
+
